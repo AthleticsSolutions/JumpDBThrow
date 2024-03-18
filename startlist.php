@@ -1,7 +1,8 @@
 <?php
+require_once("config.php");
+require_once ("db.php");
 
-require_once("db.php");
-db::connect("localhost", "athleticsdb", "root", "");
+db::connect(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
 
 $error_message_insert = '';
 
