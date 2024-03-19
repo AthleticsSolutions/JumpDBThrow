@@ -1,6 +1,6 @@
 <?php
 
-require_once("db.php");
+require_once ("db.php");
 db::connect("localhost", "athleticsdb", "root", "");
 
 
@@ -13,7 +13,7 @@ $category_winners = array();
 
 foreach ($winners_data as $winner) {
     $category = $winner["category"];
-    if (!isset($category_winners[$category])) {
+    if (!isset ($category_winners[$category])) {
         $category_winners[$category] = array();
     }
 
@@ -68,14 +68,14 @@ foreach ($winners_data as $winner) {
             flex: 1;
             text-align: center;
             padding: 20px;
-            background-color: #222; 
+            background-color: #222;
             border-radius: 10px;
             margin: 10px;
         }
 
         .place h4 {
             margin-bottom: 10px;
-            font-size: 24px; 
+            font-size: 24px;
         }
 
         .place p {
@@ -85,7 +85,7 @@ foreach ($winners_data as $winner) {
 
 
         .result {
-            color: #ffcc00; 
+            color: #ffcc00;
         }
     </style>
 </head>
@@ -113,45 +113,65 @@ foreach ($winners_data as $winner) {
         <h2 class="mb-4">Winners</h2>
 
         <?php foreach ($category_winners as $category => $winners): ?>
-            <h3><?php echo $category; ?></h3>
+            <h3>
+                <?php echo $category; ?>
+            </h3>
             <div class="podium">
                 <div class="place">
                     <h4>2nd</h4>
-                    <?php if (isset($winners[1])): ?>
-                        <p><?php echo $winners[1]["name"] . " " . $winners[1]["surname"]; ?></p>
-                       
+                    <?php if (isset ($winners[1])): ?>
+                        <p>
+                            <?php echo $winners[1]["name"] . " " . $winners[1]["surname"]; ?>
+                        </p>
+
                         <?php if ($winners[1]["result"] > $winners[1]["pb"]): ?>
-                       
+
                         <?php endif; ?>
-                        <p class="result"><?php echo $winners[1]["result"]; ?> cm</p>
+                        <p class="result">
+                            <?php echo $winners[1]["result"]; ?> cm
+                        </p>
                         <br>
-                        <p class="text-muted">Personal Best: <?php echo $winners[1]["pb"]; ?> cm</p>
+                        <p class="text-muted">Personal Best:
+                            <?php echo $winners[1]["pb"]; ?> cm
+                        </p>
                     <?php endif; ?>
                 </div>
                 <div class="place">
                     <h4>1st</h4>
-                    <?php if (isset($winners[0])): ?>
-                        <p><?php echo $winners[0]["name"] . " " . $winners[0]["surname"]; ?></p>
-                        
+                    <?php if (isset ($winners[0])): ?>
+                        <p>
+                            <?php echo $winners[0]["name"] . " " . $winners[0]["surname"]; ?>
+                        </p>
+
                         <?php if ($winners[0]["result"] > $winners[0]["pb"]): ?>
-                  
+
                         <?php endif; ?>
-                        <p class="result"><?php echo $winners[0]["result"]; ?> cm</p>
+                        <p class="result">
+                            <?php echo $winners[0]["result"]; ?> cm
+                        </p>
                         <br>
-                        <p class="text-muted">Personal Best: <?php echo $winners[0]["pb"]; ?> cm</p>
+                        <p class="text-muted">Personal Best:
+                            <?php echo $winners[0]["pb"]; ?> cm
+                        </p>
                     <?php endif; ?>
                 </div>
                 <div class="place">
                     <h4>3rd</h4>
-                    <?php if (isset($winners[2])): ?>
-                        <p><?php echo $winners[2]["name"] . " " . $winners[2]["surname"]; ?></p>
-                      
+                    <?php if (isset ($winners[2])): ?>
+                        <p>
+                            <?php echo $winners[2]["name"] . " " . $winners[2]["surname"]; ?>
+                        </p>
+
                         <?php if ($winners[2]["result"] > $winners[2]["pb"]): ?>
-                   
+
                         <?php endif; ?>
-                        <p class="result"><?php echo $winners[2]["result"]; ?> cm</p>
+                        <p class="result">
+                            <?php echo $winners[2]["result"]; ?> cm
+                        </p>
                         <br>
-                        <p class="text-muted">Personal Best: <?php echo $winners[2]["pb"]; ?> cm</p>
+                        <p class="text-muted">Personal Best:
+                            <?php echo $winners[2]["pb"]; ?> cm
+                        </p>
                     <?php endif; ?>
                 </div>
             </div>

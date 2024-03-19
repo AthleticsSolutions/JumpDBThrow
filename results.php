@@ -7,7 +7,7 @@ $error_message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($_POST['results'] as $startlist_id => $result) {
-        if (empty($result) || !is_numeric($result)) {
+        if (empty ($result) || !is_numeric($result)) {
             $error_message = "The result must be a number.";
             break;
         } else {
@@ -16,8 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
-
 
 $data = db::queryAll("SELECT s.*, r.result FROM startlist s LEFT JOIN results r ON s.id = r.startlist_id GROUP BY s.id");
 
