@@ -6,18 +6,17 @@ db::connect("localhost", "athleticsdb", "root", "");
 $error_message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     foreach ($_POST['results'] as $startlist_id => $result) {
-
-        if (empty ($result) || !is_numeric($result)) {
+        if (empty($result) || !is_numeric($result)) {
             $error_message = "The result must be a number.";
             break;
         } else {
 
-            db::query("INSERT INTO results (startlist_id, result) VALUES (?, ?)", $startlist_id, $result);
+            db::query("UPDATE results SET result = ? WHERE startlist_id = ?", $result, $startlist_id);
         }
     }
 }
+
 
 
 $data = db::queryAll("SELECT s.*, r.result FROM startlist s LEFT JOIN results r ON s.id = r.startlist_id GROUP BY s.id");
@@ -115,7 +114,7 @@ $data = db::queryAll("SELECT s.*, r.result FROM startlist s LEFT JOIN results r 
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($data as $d): ?>
+                    <?php foreach ($data as $d) { ?>
                         <tr>
                             <td>
                                 <?php echo $d["id"]; ?>
@@ -135,7 +134,7 @@ $data = db::queryAll("SELECT s.*, r.result FROM startlist s LEFT JOIN results r 
                             <td><input type="number" name="results[<?php echo $d["id"]; ?>]" class="form-control"
                                     value="<?php echo $d["result"]; ?>"></td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php } ?>
                 </tbody>
             </table>
 

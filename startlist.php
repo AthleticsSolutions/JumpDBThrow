@@ -188,9 +188,9 @@ if (empty($data)) {
 
         <hr class="mb-4">
 
-        <?php if (isset($error_message)): ?>
+        <?php if (isset($error_message)){ ?>
             <div class="alert alert-danger"><?php echo $error_message; ?></div>
-        <?php else: ?>
+        <?php } else { ?>
             <h2 class="mb-4">Start List</h2>
             <table class="table">
                 <thead>
@@ -203,7 +203,7 @@ if (empty($data)) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($data as $d): ?>
+                    <?php foreach ($data as $d) { ?>
                         <tr>
                             <td><?php echo $d["id"]; ?></td>
                             <td><?php echo $d["name"]; ?></td>
@@ -211,10 +211,10 @@ if (empty($data)) {
                             <td><?php echo $d["category"]; ?></td>
                             <td><?php echo $d["pb"]; ?> cm</td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php }?>
                 </tbody>
             </table>
-        <?php endif; ?>
+        <?php } ?>
     </div>
 
 </body>
