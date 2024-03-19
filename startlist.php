@@ -116,11 +116,11 @@ if (empty ($data)) {
 
     <div class="container py-4">
         <h2 class="mb-4">Insert a New Athlete</h2>
-        <?php if (!empty ($error_message_insert)): ?>
+        <?php if (!empty ($error_message_insert)) { ?>
             <div class="alert alert-danger">
                 <?php echo $error_message_insert; ?>
             </div>
-        <?php endif; ?>
+        <?php } ?>
         <form method="post" class="mb-4">
             <div class="form-group">
                 <label for="name">Name</label>
@@ -173,29 +173,29 @@ if (empty ($data)) {
                     <select name="filter-category" id="filter-category" class="form-control">
                         <option value="">Select Category</option>
                         <option value="MZI" <?php if ($filter_category == 'MZI')
-                            echo 'selected'; ?>>Men</option>
+                            ; ?>>Men</option>
                         <option value="JKY" <?php if ($filter_category == 'JKY')
-                            echo 'selected'; ?>>Juniors</option>
+                            ; ?>>Juniors</option>
                         <option value="DCI" <?php if ($filter_category == 'DCI')
-                            echo 'selected'; ?>>Youth</option>
+                            ; ?>>Youth</option>
                         <option value="ZKY" <?php if ($filter_category == 'ZKY')
-                            echo 'selected'; ?>>Girls</option>
+                            ; ?>>Girls</option>
                         <option value="ZCI" <?php if ($filter_category == 'ZCI')
-                            echo 'selected'; ?>>Boys</option>
+                            ; ?>>Boys</option>
                         <option value="VTY" <?php if ($filter_category == 'VTY')
-                            echo 'selected'; ?>>Veteran Women
+                            ; ?>>Veteran Women
                         </option>
                         <option value="ZNY" <?php if ($filter_category == 'ZNY')
-                            echo 'selected'; ?>>Women</option>
+                            ; ?>>Women</option>
                         <option value="MZK" <?php if ($filter_category == 'MZK')
-                            echo 'selected'; ?>>Younger Girls
+                            ; ?>>Younger Girls
                         </option>
                         <option value="JRI" <?php if ($filter_category == 'JRI')
-                            echo 'selected'; ?>>Junior Boys</option>
+                            ; ?>>Junior Boys</option>
                         <option value="VRI" <?php if ($filter_category == 'VRI')
-                            echo 'selected'; ?>>Veteran Men</option>
+                            ; ?>>Veteran Men</option>
                         <option value="MZC" <?php if ($filter_category == 'MZC')
-                            echo 'selected'; ?>>Younger Boys</option>
+                            ; ?>>Younger Boys</option>
                     </select>
                 </div>
             </div>

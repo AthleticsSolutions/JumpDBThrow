@@ -26,7 +26,8 @@ This PHP application is designed to facilitate the tracking of results for throw
 ## Technologies Used:
 - PHP
 - MySQL
-- HTML
+- Bootstrap
+- HTML  
 - CSS
 
 ## Contributors:

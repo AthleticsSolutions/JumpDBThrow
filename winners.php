@@ -112,21 +112,21 @@ foreach ($winners_data as $winner) {
     <div class="container py-4">
         <h2 class="mb-4">Winners</h2>
 
-        <?php foreach ($category_winners as $category => $winners): ?>
+        <?php foreach ($category_winners as $category => $winners) { ?>
             <h3>
                 <?php echo $category; ?>
             </h3>
             <div class="podium">
                 <div class="place">
                     <h4>2nd</h4>
-                    <?php if (isset ($winners[1])): ?>
+                    <?php if (isset ($winners[1])) { ?>
                         <p>
                             <?php echo $winners[1]["name"] . " " . $winners[1]["surname"]; ?>
                         </p>
 
-                        <?php if ($winners[1]["result"] > $winners[1]["pb"]): ?>
+                        <?php  if ($winners[1]["result"] > $winners[1]["pb"]) { ?>
 
-                        <?php endif; ?>
+                        <?php } ?>
                         <p class="result">
                             <?php echo $winners[1]["result"]; ?> cm
                         </p>
@@ -134,18 +134,18 @@ foreach ($winners_data as $winner) {
                         <p class="text-muted">Personal Best:
                             <?php echo $winners[1]["pb"]; ?> cm
                         </p>
-                    <?php endif; ?>
+                    <?php } ?>
                 </div>
                 <div class="place">
                     <h4>1st</h4>
-                    <?php if (isset ($winners[0])): ?>
+                    <?php if (isset ($winners[0])) {?>
                         <p>
                             <?php echo $winners[0]["name"] . " " . $winners[0]["surname"]; ?>
                         </p>
 
-                        <?php if ($winners[0]["result"] > $winners[0]["pb"]): ?>
+                        <?php if ($winners[0]["result"] > $winners[0]["pb"]) { ?>
 
-                        <?php endif; ?>
+                        <?php } ?>
                         <p class="result">
                             <?php echo $winners[0]["result"]; ?> cm
                         </p>
@@ -153,18 +153,18 @@ foreach ($winners_data as $winner) {
                         <p class="text-muted">Personal Best:
                             <?php echo $winners[0]["pb"]; ?> cm
                         </p>
-                    <?php endif; ?>
+                    <?php } ?>
                 </div>
                 <div class="place">
                     <h4>3rd</h4>
-                    <?php if (isset ($winners[2])): ?>
+                    <?php if (isset ($winners[2])) { ?>
                         <p>
                             <?php echo $winners[2]["name"] . " " . $winners[2]["surname"]; ?>
                         </p>
 
-                        <?php if ($winners[2]["result"] > $winners[2]["pb"]): ?>
+                        <?php if ($winners[2]["result"] > $winners[2]["pb"]) { ?>
 
-                        <?php endif; ?>
+                        <?php } ?>
                         <p class="result">
                             <?php echo $winners[2]["result"]; ?> cm
                         </p>
@@ -172,10 +172,10 @@ foreach ($winners_data as $winner) {
                         <p class="text-muted">Personal Best:
                             <?php echo $winners[2]["pb"]; ?> cm
                         </p>
-                    <?php endif; ?>
+                    <?php } ?>
                 </div>
             </div>
-        <?php endforeach; ?>
+        <?php } ?>
     </div>
 
 </body>

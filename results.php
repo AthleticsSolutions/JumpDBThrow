@@ -94,11 +94,11 @@ $data = db::queryAll("SELECT s.*, r.result FROM startlist s LEFT JOIN results r 
 
     <div class="container py-4">
         <h2 class="mb-4">Results</h2>
-        <?php if (!empty ($error_message)): ?>
+        <?php if (!empty ($error_message)) { ?>
             <div class="alert alert-danger">
                 <?php echo $error_message; ?>
             </div>
-        <?php endif; ?>
+        <?php }?>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <table class="table">
                 <thead>
