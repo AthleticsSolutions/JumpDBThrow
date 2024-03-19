@@ -1,6 +1,6 @@
 <?php
 
-require_once ("db.php");
+require_once("db.php");
 db::connect("localhost", "athleticsdb", "root", "");
 
 $error_message_insert = '';
@@ -12,12 +12,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $category = $_POST["category"];
     $pb = $_POST["pb"];
 
-    if (empty ($name) || empty ($surname) || empty ($category) || empty ($pb)) {
+    if (empty($name) || empty($surname) || empty($category) || empty($pb)) {
         $error_message_insert = "All fields are required.";
     } else {
         db::query("INSERT INTO startlist (name, surname, category, pb) VALUES (?,?,?,?)", $name, $surname, $category, $pb);
+        $last_insert_id = db::querySingle("SELECT LAST_INSERT_ID()");
+        db::query("INSERT INTO results (startlist_id, result) VALUES (?, ?)", $last_insert_id, NULL);
     }
 }
+
 
 $filter_name = isset ($_GET['filter-name']) ? $_GET['filter-name'] : '';
 $filter_surname = isset ($_GET['filter-surname']) ? $_GET['filter-surname'] : '';

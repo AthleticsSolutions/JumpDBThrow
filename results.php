@@ -1,23 +1,13 @@
 <?php
 
-require_once("db.php");
+require_once ("db.php");
 db::connect("localhost", "athleticsdb", "root", "");
 
 $error_message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $overall_result = $_POST['overall_result'];
-    $startlist_ids = array_keys($_POST['results']);
-
-    $existing_startlist_ids = array_column(db::query("SELECT id FROM startlist")->fetchAll(), 'id');
-
-    $missing_startlist_ids = array_diff($existing_startlist_ids, $startlist_ids);
-    foreach ($missing_startlist_ids as $missing_id) {
-        db::query("INSERT INTO results (startlist_id, result) VALUES (?, ?)", $missing_id, $_POST['results'][$missing_id]);
-    }
-
     foreach ($_POST['results'] as $startlist_id => $result) {
-        if (empty($result) || !is_numeric($result)) {
+        if (empty ($result) || !is_numeric($result)) {
             $error_message = "The result must be a number.";
             break;
         } else {
@@ -103,16 +93,12 @@ $data = db::queryAll("SELECT s.*, r.result FROM startlist s LEFT JOIN results r 
 
     <div class="container py-4">
         <h2 class="mb-4">Results</h2>
-        <?php if (!empty($error_message)) { ?>
+        <?php if (!empty ($error_message)) { ?>
             <div class="alert alert-danger">
                 <?php echo $error_message; ?>
             </div>
-        <?php } ?>
+        <?php }?>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <div class="form-group">
-                <label for="overall_result">Overall Result:</label>
-                <input type="number" name="overall_result" id="overall_result" class="form-control" value="">
-            </div>
             <table class="table">
                 <thead>
                     <tr>
@@ -143,7 +129,7 @@ $data = db::queryAll("SELECT s.*, r.result FROM startlist s LEFT JOIN results r 
                                 <?php echo $d["pb"]; ?> cm
                             </td>
                             <td><input type="number" name="results[<?php echo $d["id"]; ?>]" class="form-control"
-                                       value="<?php echo $d["result"]; ?>"></td>
+                                    value="<?php echo $d["result"]; ?>"></td>
                         </tr>
                     <?php } ?>
                 </tbody>
