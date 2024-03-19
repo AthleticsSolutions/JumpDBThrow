@@ -12,7 +12,6 @@ This PHP application is designed to facilitate the tracking of results for throw
     - Clone this repository to your local machine.
     - Make sure you have PHP installed.
     - Set up a MySQL database and import the provided schema (`database.sql`).
-    - Configure the database connection in `config.php`.
     
 2. **Run the Application**:
     - Navigate to the project directory in your terminal.
