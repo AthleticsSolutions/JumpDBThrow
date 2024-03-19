@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.2.1
+- https://www.phpmyadmin.net
+-
+- Počítač: localhost
+- Vytvořeno: Úte 19. bře 2024, 09:02
+- Verze serveru: 10.4.28-MariaDB
+- Verze PHP: 8.0.28
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="athleticsdb" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="results">
+                CREATE TABLE `results` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `startlist_id` int(11) NOT NULL,
+                  `result` tinyint(3) DEFAULT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `fk_startlist_id` (`startlist_id`),
+                  CONSTRAINT `fk_startlist_id` FOREIGN KEY (`startlist_id`) REFERENCES `startlist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+            </pma:table>
+            <pma:table name="startlist">
+                CREATE TABLE `startlist` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(255) NOT NULL,
+                  `surname` varchar(255) NOT NULL,
+                  `category` varchar(3) NOT NULL,
+                  `pb` tinyint(3) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Databáze: 'athleticsdb'
+    -->
+    <database name="athleticsdb">
+        <!-- Tabulka results -->
+        <table name="results">
+            <column name="id">2</column>
+            <column name="startlist_id">32</column>
+            <column name="result">23</column>
+        </table>
+        <table name="results">
+            <column name="id">3</column>
+            <column name="startlist_id">33</column>
+            <column name="result">12</column>
+        </table>
+        <table name="results">
+            <column name="id">4</column>
+            <column name="startlist_id">34</column>
+            <column name="result">12</column>
+        </table>
+        <table name="results">
+            <column name="id">5</column>
+            <column name="startlist_id">32</column>
+            <column name="result">23</column>
+        </table>
+        <table name="results">
+            <column name="id">6</column>
+            <column name="startlist_id">33</column>
+            <column name="result">12</column>
+        </table>
+        <table name="results">
+            <column name="id">7</column>
+            <column name="startlist_id">34</column>
+            <column name="result">12</column>
+        </table>
+        <table name="results">
+            <column name="id">8</column>
+            <column name="startlist_id">32</column>
+            <column name="result">23</column>
+        </table>
+        <table name="results">
+            <column name="id">9</column>
+            <column name="startlist_id">33</column>
+            <column name="result">12</column>
+        </table>
+        <table name="results">
+            <column name="id">10</column>
+            <column name="startlist_id">34</column>
+            <column name="result">12</column>
+        </table>
+        <!-- Tabulka startlist -->
+        <table name="startlist">
+            <column name="id">32</column>
+            <column name="name">G</column>
+            <column name="surname">DG</column>
+            <column name="category">MZI</column>
+            <column name="pb">24</column>
+        </table>
+        <table name="startlist">
+            <column name="id">33</column>
+            <column name="name">G</column>
+            <column name="surname">DG</column>
+            <column name="category">MZI</column>
+            <column name="pb">24</column>
+        </table>
+        <table name="startlist">
+            <column name="id">34</column>
+            <column name="name">G</column>
+            <column name="surname">DG</column>
+            <column name="category">MZI</column>
+            <column name="pb">24</column>
+        </table>
+    </database>
+</pma_xml_export>
