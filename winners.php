@@ -1,8 +1,7 @@
 <?php
-require_once("config.php");
-require_once ("db.php");
 
-db::connect(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
+require_once("db.php");
+db::connect("localhost", "athleticsdb", "root", "");
 
 
 $winners_query = "SELECT s.category, s.name, s.surname, s.pb, r.result FROM startlist s LEFT JOIN results r ON s.id = r.startlist_id WHERE r.result IS NOT NULL GROUP BY s.id ORDER BY s.category, r.result DESC";
